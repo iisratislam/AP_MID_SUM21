@@ -87,9 +87,9 @@ namespace labtask1.Models.database
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public void delete(student s)
+        public void delete(int id)
         {
-            string query = $"Delete from student Where Id = {s.ID}";
+            string query = $"Delete from Students WHERE ID = {id}";
             SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
             cmd.ExecuteNonQuery();

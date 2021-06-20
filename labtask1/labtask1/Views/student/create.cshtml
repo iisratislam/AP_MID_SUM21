@@ -7,10 +7,12 @@
 <div>
     <form action="/student/create" method="post">
         <input type="text" name="NAME" class="form-control" placeholder="name" />
-        <input type="text" name="ID" class="form-control" placeholder="id" />
+        @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+       
         <input type="text" name="CGPA" class="form-control" placeholder="cgpa" />
-      
-        <input type="submit"class="btn btn-block"value="add"/>
+        @Html.ValidationMessageFor(model => model.CGPA, "", new { @class = "text-danger" })
+
+        <input type="submit" class="btn btn-block" value="add" />
 
 
 

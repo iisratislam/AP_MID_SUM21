@@ -28,9 +28,12 @@ namespace labtask1.Controllers
         [HttpPost]
         public ActionResult create(student s)
         {
+            if (ModelState.IsValid) { 
             database db = new database();
             db.students.Insert(s);
             return RedirectToAction("Index");
+            }
+            return View();
         }
         public ActionResult Edit(int id )
         {
@@ -47,12 +50,12 @@ namespace labtask1.Controllers
             db.students.update(s);
             return RedirectToAction("index");
         }
-        public ActionResult delete(student s)
+        
+        public ActionResult delete(int id)
         {
-
             database db = new database();
-            db.students.delete(s);
-            return RedirectToAction("index");
+            db.students.delete(id);
+            return View();
         }
 
 
